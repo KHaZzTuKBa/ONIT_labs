@@ -16,14 +16,11 @@ public class HomePageTests : IClassFixture<CustomWebApplicationFactory>
 	[Fact]
 	public async Task Get_HomeIndex_ReturnsSuccessStatusCode()
 	{
-		// Arrange
 		var client = _factory.CreateClient();
 
-		// Act
 		var response = await client.GetAsync("/");
 
-		// Assert
-		Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+		Assert.Equal(HttpStatusCode.Accepted, response.StatusCode);
 	}
 }
 

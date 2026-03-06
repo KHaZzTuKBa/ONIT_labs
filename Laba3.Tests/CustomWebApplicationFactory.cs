@@ -13,7 +13,6 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 	{
 		builder.ConfigureServices(services =>
 		{
-			// Удаляем реальный AppDbContext (PostgreSQL)
 			var descriptor = services.SingleOrDefault(
 				d => d.ServiceType == typeof(DbContextOptions<AppDbContext>));
 
@@ -22,7 +21,6 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 				services.Remove(descriptor);
 			}
 
-			// Подменяем на InMemory БД для функциональных тестов
 			services.AddDbContext<AppDbContext>(options =>
 				options.UseInMemoryDatabase("TestDb"));
 		});
