@@ -33,5 +33,5 @@ jobs:
         run: dotnet build --configuration Release --no-restore
 
       - name: Test
-        run: dotnet test ./Laba3.Tests/Laba3.Tests.csproj --configuration Release --no-build --logger "trx;LogFileName=test-results.trx"
+        run: dotnet test ./Laba3.Tests/Laba3.Tests.csproj --configuration Release --logger "trx;LogFileName=test-results.trx"
 
